@@ -15,7 +15,7 @@ class StepDefLogin extends ScalaDsl with EN {
 
   }
 
-  When("""the user enters valid username and password """) { () =>
+  When("""the user enters valid username and password""") { () =>
     val username: WebElement = driver.findElement(By.name("username"))
       username.sendKeys("john")
     val password: WebElement = driver.findElement(By.name("password"))
@@ -23,14 +23,14 @@ class StepDefLogin extends ScalaDsl with EN {
 
   }
 
-  And("""the user clicks the login button """) { () =>
+  And("""the user clicks the login button""") { () =>
     val submitButton: WebElement = driver.findElement(By.cssSelector("input[type ='submit']"))
     submitButton.click()
 Thread.sleep(2000)
 
   }
 
-  Then(""" the user should be logged in successfully""") { () =>
+  Then("""the user should be logged in successfully""") { () =>
   val loginSuccessful: WebElement = driver.findElement(By.tagName("h1"))
     val actualHeader = loginSuccessful.getText
     val expectedHeader = "Account Overview"
